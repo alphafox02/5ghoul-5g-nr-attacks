@@ -190,6 +190,11 @@ index ed02847387..13d52b0c34 100755
 +    $SUDO /usr/local/lib/uhd/utils/uhd_images_downloader.py -t b2xx_b210_fpga_default || true
 +    $SUDO /usr/local/lib/uhd/utils/uhd_images_downloader.py -t b2xx_common_fw_default || true
 +
++    echo "Cloning LibreSDR_USRP repository and applying patch"
++    git clone https://github.com/alphafox02/LibreSDR_USRP /tmp/LibreSDR_USRP
++    cd /tmp/LibreSDR_USRP
++    $SUDO ./patch.sh
++
      if [ $IS_CONTAINER -eq 0 ]; then
          if [[ "$OS_DISTRO" == "ubuntu" ]]; then
              $SUDO /usr/local/lib/uhd/utils/uhd_images_downloader.py
